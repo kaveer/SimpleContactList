@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Contact List</h1>
+  <form (submit)="addContact()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="newContact.name" name="name" required class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="newContact.email" name="email" required class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Contact</button>
+  </form>
+
+  <h2>Contacts</h2>
+  <ul class="list-group">
+    <li *ngFor="let contact of contacts" class="list-group-item">
+      <div class="contact-info">
+        <span>{{ contact.name }}</span> - <span>{{ contact.email }}</span>
+      </div>
+      <button (click)="removeContact(contact)" class="btn btn-danger btn-sm">Remove</button>
+    </li>
+  </ul>
+</div>
